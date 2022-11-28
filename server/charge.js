@@ -1,4 +1,4 @@
-const stripe = require("stripe")('sk_test_51Lrnh3Hn5HPNBT2DHgZxIB7EYtwPMCRUxe9wEUc5LXQbDRuRRKQ7pBJccxVCGoOytN4UAtfiQKG6nOgxekqUI4nT00fYlNuUwH');
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const cookie = require('cookie');
 
 exports.handler = async (event, context) => {
