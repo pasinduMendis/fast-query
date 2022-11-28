@@ -277,12 +277,12 @@ a,
             </div>
             <div class="nav_right-menu">
               <a href="#" class="nav_link hide w-nav-link">Sign In</a>
-              <a href="#" class="button nav w-button">Get Early Access</a>
+              <a id="eventFive2" href="#" class="button nav w-button">Get Early Access</a>
             </div>
           </nav>
           <div class="nav_right-menu nav">
             <a href="#" class="nav_link w-nav-link">Sign In</a>
-            <a href="#" class="button nav w-button">Get Early Access</a>
+            <a id="eventFive3" href="#" class="button nav w-button">Get Early Access</a>
           </div>
           <div class="menu_button w-nav-button">
             <div class="menu_icon w-icon-nav-menu"></div>
@@ -306,6 +306,7 @@ a,
                     </div>
                     <div class="margin-top margin-medium">
                       <a
+                      id="eventFive"
                         scroll="disable"
                         data-w-id="2dc585d1-92bf-6ec6-0ab8-c3cf2751c83c"
                         href="#"
@@ -512,6 +513,7 @@ a,
                         value="SUBMIT"
                         data-wait="Please wait..."
                         class="button arrow-btn w-button"
+                        id="eventSix"
                       />
                       <img
                         src="images/arrow.svg"
@@ -688,5 +690,50 @@ a,
         form.submit();
       }
     </script>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  //Server Side Tracking Function
+  async function serverSideTracking(eventName, eventUrl, eventId) {
+    await axios
+      .post(
+        "/.netlify/functions/server-side-tracking",
+        {
+          eventName: eventName,
+          eventUrl: eventUrl,
+          eventId: eventId
+        }
+      )
+      .then((response) => {
+        console.log("Success: " + response.data);
+      })
+      .catch((err) => console.log("Failed: " + err));
+  }
+  //Index Page Events
+  window.onload = serverSideTracking("Early Access Page View", window.location.href, "4");
+  var eventFive = document.getElementById("eventFive");
+  eventFive.addEventListener("click", function () {
+    serverSideTracking("Early Access Page Get Early Access Button Click", window.location.href, "5");
+    //fbq('trackCustom', 'Early Access Page Get Early Access Button Click', { eventID: '5' });
+  });
+
+  var eventFive2 = document.getElementById("eventFive2");
+  eventFive2.addEventListener("click", function () {
+    serverSideTracking("Early Access Page Get Early Access Button Click", window.location.href, "5");
+    //fbq('trackCustom', 'Early Access Page Get Early Access Button Click', { eventID: '5' });
+  });
+
+  var eventFive3 = document.getElementById("eventFive3");
+  eventFive3.addEventListener("click", function () {
+    serverSideTracking("Early Access Page Get Early Access Button Click", window.location.href, "5");
+    //fbq('trackCustom', 'Early Access Page Get Early Access Button Click', { eventID: '5' });
+  });
+
+  var eventSix = document.getElementById("eventSix");
+  eventSix.addEventListener("click", function () {
+    serverSideTracking("Early Access Page Submit Button Click", window.location.href, "6");
+    //fbq('trackCustom', 'Early Access Page Submit Button Click', { eventID: '6' });
+  });      
+</script>
   </body>
 </html>
