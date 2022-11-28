@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const userSchema = new Schema({
     userId: String,
-    email: String,
+    first_name: String,
     referralId: String,
     numberOfReferrals: Number,
     referrals: [{ idOfReferral: String }],
