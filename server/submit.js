@@ -6,6 +6,7 @@ const cookie = require('cookie');
 
 exports.handler = async (event, context) => {
 
+  console.log("***********")
   console.log(event.body)
   const array = event.body.split("first-name=");
   const firstName = decodeURIComponent(array[1]);
