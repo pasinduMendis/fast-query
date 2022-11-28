@@ -465,7 +465,8 @@ a,
                     id="payment-form"
                     name="email-form"
                     data-name="Email Form"
-                    method="get"
+                    action="/.netlify/functions/charge"
+                    method="post"
                     class="form_popup-component"
                   >
                     <div class="form_text-input-wrap">
@@ -478,7 +479,7 @@ a,
                         data-name="Name"
                         placeholder="Enter your Full name"
                         id="name"
-                        required=""
+                        required
                       />
                     </div>
                     <div class="form_text-input-wrap">
@@ -491,27 +492,32 @@ a,
                         data-name="Email"
                         placeholder="Enter your email address"
                         id="Email"
-                        required=""
+                        required
                       />
                     </div>
                     <div class="form_text-input-wrap">
                       <label for="name-3" class="form_text-popup"
                         >Card details*</label
                       >
-                      <div class="form_input-popup w-input" id="card-element"></div>
+                      <div
+                        class="form_input-popup w-input"
+                        id="card-element"
+                      ></div>
                     </div>
-                    <div class="duplicate-btn">
-                      <div class="btn-text">SUBMIT</div>
+                    <div style="width: 100%">
+                      <input
+                        class="duplicate-btn button is-form-submit w-button"
+                        style="width: 100%"
+                        type="submit"
+                        value="SUBMIT"
+                        data-wait="Please wait..."
+                        class="button arrow-btn w-button"
+                      />
                       <img
                         src="images/arrow.svg"
                         loading="lazy"
                         alt=""
                         class="arrow"
-                      /><input
-                        type="submit"
-                        value="Submit"
-                        data-wait="Please wait..."
-                        class="button arrow-btn w-button"
                       />
                     </div>
                   </form>
