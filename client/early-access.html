@@ -527,10 +527,10 @@ a,
                     </div>
                   </form>
                   <p id="card-errors" class="paragraph-49"></p>
-                  <div class="w-form-done">
+                  <div class="w-form-done-">
                     <div></div>
                   </div>
-                  <div class="w-form-fail">
+                  <div class="w-form-fail-">
                     <div></div>
                   </div>
                 </div>
@@ -674,7 +674,7 @@ a,
             name: name,
             email: email,
           };
-
+          
           const charge = await stripe.createPaymentMethod({
             type: "card",
             card: cardElement,
