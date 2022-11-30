@@ -205,13 +205,13 @@ margin: 0rem !important;
             <a href="#" class="nav_link hide w-nav-link">Help</a>
           </div>
           <div class="nav_right-menu">
-            <a href="#" class="nav_link hide w-nav-link">Sign In</a>
+            <a id="eventTwo" href="#" class="nav_link hide w-nav-link">Sign In</a>
             <a href="#" class="button nav w-button">Get Early Access</a>
           </div>
         </nav>
         <div class="nav_right-menu nav">
           <a href="#" class="nav_link w-nav-link">Sign In</a>
-          <a id="eventOne" href="#" class="button nav w-button">Get Early Access</a>
+          <a id="eventTwo2" href="#" class="button nav w-button">Get Early Access</a>
         </div>
         <div class="menu_button w-nav-button">
           <div class="menu_icon w-icon-nav-menu"></div>
@@ -469,8 +469,14 @@ margin: 0rem !important;
     }
     //Index Page Events
     window.onload = serverSideTracking("Index Page View", window.location.href, "1");
-    var eventOne = document.getElementById("eventOne");
-    eventOne.addEventListener("click", function () {
+    var eventTwo = document.getElementById("eventTwo");
+    eventTwo.addEventListener("click", function () {
+      serverSideTracking("Index Page Get Early Access Button Click", window.location.href, "2");
+      //fbq('trackCustom', 'Index Page Get Early Access Button Click', { eventID: '2' });
+    });
+
+    var eventTwo2 = document.getElementById("eventTwo2");
+    eventTwo2.addEventListener("click", function () {
       serverSideTracking("Index Page Get Early Access Button Click", window.location.href, "2");
       //fbq('trackCustom', 'Index Page Get Early Access Button Click', { eventID: '2' });
     });
